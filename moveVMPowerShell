@@ -1,0 +1,5 @@
+get-azresource -resourcegroupname morepowershelldsc | format-list -property resourceid                      #getting all resources filtered by resourceID
+$vnetrid = (get-azresource -resourcegroupname morepowershelldsc -resourcename bearsite-vnet).ResourceID     #
+$vnetrid                                                                                                    #calling the vnet variable
+move-azresource -destinationresourcegroupname beardproduction -resourceid $vnetrid                          #moving the the VM to the new resource using the resourceID variable previously chosen
+
